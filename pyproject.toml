@@ -1,0 +1,17 @@
+[tool.poetry]
+name = "nabbingo_server"
+version = "0.1.0"
+description = ""
+authors = ["Phillip Samuel K. <phillipsamuelk3@gmail.com>"]
+
+[tool.poetry.dependencies]
+python = "^3.10"
+Flask = "^2.1.2"
+Flask-SQLAlchemy = "^2.5.1"
+
+[tool.poetry.dev-dependencies]
+pytest = "^5.2"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
