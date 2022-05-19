@@ -1,24 +1,37 @@
-from flask import Flask, request, jsonify
+from flask import Flask, request, jsonify, send_file
+import json
+from data_access import get_data_from_file, write_data_to_file, create_data_file
+
+DATAFILE = '/tmp/dustbin.json'
+
+create_data_file(DATAFILE, True)
 
 app = Flask(__name__)
 
 @app.route('/', methods=['GET'])
 def index():
-    with open('tmp/dustbin.json', 'r') as f:
-        data = f.read()
-        dustbin = json.loads(data)
-        return jsonify(dustbin)
+    dustbin = get_data_from_file(DATAFILE)
+    
+    return jsonify(dustbin)
 
 @app.route('/update', methods=['POST'])
 def update_status():
     new_info = json.loads(request.data)
-    with open('tmp/dustbin.json', 'r') as f:
-        data = f.read()
-        dustbin = json.loads(data)
+    dustbin = get_data_from_file(DATAFILE)
 
-        dustbin['status'] = new_info['status']
+    dustbin['status'] = new_info['status']
 
-    with open('tmp/dustbin.json', 'w') as f :
-        f.write(dustbin.dumps(dustbin, indent=2))
+    write_data_to_file(DATAFILE, dustbin)
+    return jsonify(dustbin)
 
-app.run(debug=True)
+@app.route('/refresh_status', methods=['GET'])
+def refresh_status():
+    data = get_data_from_file(DATAFILE)
+    data['status'] = 0
+
+    write_data_to_file(DATAFILE, data)
+    return jsonify(data)
+
+if __name__ == "__main__":
+    import sys
+    app.run(debug=True, port=8080)
