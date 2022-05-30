@@ -1,4 +1,4 @@
-from flask import Flask, request, jsonify, send_file
+from flask import Flask, request, jsonify, send_file, render_template
 import json
 from data_access import get_data_from_file, write_data_to_file, create_data_file
 
@@ -9,7 +9,7 @@ create_data_file(DATAFILE, True)
 app = Flask(__name__)
 
 @app.route('/', methods=['GET'])
-def index():
+def get_status():
     dustbin = get_data_from_file(DATAFILE)
     
     return jsonify(dustbin)
@@ -31,6 +31,11 @@ def refresh_status():
 
     write_data_to_file(DATAFILE, data)
     return jsonify(data)
+
+@app.route('/index')
+def index():
+    dustbin = get_data_from_file(DATAFILE)
+    return render_template("index.html", dustbin=dustbin)
 
 if __name__ == "__main__":
     import sys

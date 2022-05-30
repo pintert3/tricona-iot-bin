@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>
+			TRICONA IOT Dustbin
+		</title>
+	</head>
+	<body>
+			<p> Hello TRICONA </p>
+		<div>
+			<img src="https://source.unsplash.com/random/300x200">
+		</div>
+		<div>
+			{% if dustbin[status] %}
+			<div class=full>
+			{% else %}
+			<div class=empty>
+			{% endif %}
+			</div>
+		</div>
+	</body>
+</html>
