@@ -7,18 +7,20 @@
 		</title>
 		<link rel="stylesheet" href={{ url_for('static', filename='style.css') }}>
 		<link rel="icon" type="image/png" href={{ url_for('static', filename='favicon.png') }}>
+		<link rel="preload" href="/lib/fonts/source-sans-pro-v14-latin-700.woff2" as="font" type="font/woff2" >
 	</head>
 <body style="color:black;">
 <!-- img style="border:2px solid green;" -->
+<img src={{ url_for('static', filename="bin.jpg") }}>
 <h1 style="background-color:lavender;">IOT Smart bin TRICONA.</h1>
 
-<p style="color: LimeGreen;">"Developing smart cities."</p>
+<p>"Developing smart cities."</p>
 <p>Many cities are developing in our country and elsewhere which is good, but are challenged with an issue of garbage disposal. </p>
 <p>The smart bin is attractive environmental friendly and simple to use. With the 'no touch' use, contact to germs is limited.</p>
 <p>Green lights indicate more space for rubbish. Red lights and notifications indicate a full dustbin that needs to be emptied.   </p>
-<p style="color:Tomato;">Beware of electric circuits!.Don't pour liquids inside!.</p>
+<p>Beware of electric circuits!.Don't pour liquids inside!.</p>
 
-<p style="color:LimeGreen;">Love your city by using the new systems in the world of internet</p>
+<p>Love your city by using the new systems in the world of internet</p>
 		<div>
 			{% if bin_status %}
 			<div class="box full">

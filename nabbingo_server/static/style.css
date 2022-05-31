@@ -1,3 +1,4 @@
+
 .box {
     width: 100px;
     height: 100px;
@@ -7,10 +8,23 @@
 
 .full {
     background : red;
+    color : #ffffff;
 }
 
 .empty {
-    background : green;
+    background : yellow; 
+    color : #000000;
 }
 
+img {
+    width : 12%;
+    height : 12%;
+}
 
+body {
+	background-color: #7baae4;
+    color: #d5dce8;
+	padding: 22px;
+    font-family : "Source Sans Pro";
+}
+ 
