@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>
+			TRICONA IOT Dustbin
+		</title>
+		<link rel="stylesheet" href={{ url_for('static', filename='style.css') }}>
+	</head>
+	<body>
+			<p> Hello TRICONA </p>
+		<div>
+			<img src="https://source.unsplash.com/random/300x200">
+		</div>
+		<div>
+			{% if bin_status %}
+			<div class="box full">
+			{% else %}
+			<div class="box empty">
+			{% endif %}
+				<span>&nbsp;</span>
+			</div>
+		</div>
+	</body>
+</html>
