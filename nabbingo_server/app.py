@@ -35,7 +35,7 @@ def refresh_status():
 @app.route('/index')
 def index():
     dustbin = get_data_from_file(DATAFILE)
-    return render_template("index.html", dustbin=dustbin)
+    return render_template("index.html", bin_status=int(dustbin["status"]))
 
 if __name__ == "__main__":
     import sys

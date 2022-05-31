@@ -1,0 +1,16 @@
+.box {
+    width: 100px;
+    height: 100px;
+    padding : 20px;
+    border-radius : 2px;
+}
+
+.full {
+    background : red;
+}
+
+.empty {
+    background : green;
+}
+
+
